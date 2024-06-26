@@ -1,1 +1,4 @@
 torch
+nibabel
+numpy
+tqdm
