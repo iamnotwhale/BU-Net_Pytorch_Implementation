@@ -5,7 +5,7 @@
 
 ## 소개
 
-[인공지능 연합 프로젝트 팀 deep daiv.](https://deepdaiv.oopy.io/)의 2024년 봄 기수 Medical AI 세션의 프로젝트로 진행된 **U-Net 기반 뇌 종양 이미지 분할** 프로젝트의 레포지토리입니다. <br>
+인공지능 연합 프로젝트 팀 [deep daiv.](https://deepdaiv.oopy.io/)의 2024년 봄 기수 Medical AI 세션의 프로젝트로 진행된 **U-Net 기반 뇌 종양 이미지 분할** 프로젝트의 레포지토리입니다. <br>
 
 
 ## 사용 방법
