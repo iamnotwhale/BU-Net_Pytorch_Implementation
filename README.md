@@ -10,32 +10,31 @@
 
 ## 사용 방법
 
-### 데이터셋
+### 데이터셋 준비
 
 BraTS (Brain Tumor Segmentation) 2018 데이터셋을 사전에 준비해야 합니다. 데이터셋은 [여기](https://www.med.upenn.edu/sbia/brats2018/registration.html)를 통해 접근할 수 있습니다.
 
-데이터셋을 준비한 이후에 
 
 ### 환경설정
-
+모델 학습에 필요한 패키지를 설치해주세요.
 ```
 python -m pip install -r requirements.txt
 ```
 
 ### 데이터 전처리
-1. 데이터셋이 준비된 폴더로 이동합니다.
-
+데이터셋을 준비한 이후에 preprocess 폴더 내의 `preprocess.py` 파일을 실행시켜 주세요.
+#### Usage
 ```
-cd dataset
+cd preprocess
+python preprocess.py --datapath --savepath
 ```
-데이텃
 
 ### 학습
 ```
 python train.py
 ```
 
-### 테스트
+### 추론
 ```
 python test.py
 ```
