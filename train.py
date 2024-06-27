@@ -117,8 +117,14 @@ if __name__ == '__main__':
     model.to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 
-    dataset = Custom2DBraTSDataset(args.dataset_folder, modality='t1', range=10)
-    trainset, valset = torch.utils.data.random_split(dataset, [int(0.8*len(dataset)), int(0.2*len(dataset))])
+    t1_dataset = Custom2DBraTSDataset(args.dataset_folder, modality='t1', num_slices=5)
+    t2_dataset = Custom2DBraTSDataset(args.dataset_folder, modality='t2', num_slices=5)
+    t1ce_dataset = Custom2DBraTSDataset(args.dataset_folder, modality='t1ce', num_slices=5)
+    flair_dataset = Custom2DBraTSDataset(args.dataset_folder, modality='flair', num_slices=5)
+
+    dataset = torch.utils.data.ConcatDataset([t1_dataset, t2_dataset, t1ce_dataset, flair_dataset])
+
+    trainset, valset = torch.utils.data.random_split(dataset, [int(0.8 * len(dataset)), len(dataset) - int(0.8 * len(dataset))])
 
     trainloader = DataLoader(trainset, batch_size=args.batch_size, shuffle=True)
     valloader = DataLoader(valset, batch_size=args.batch_size, shuffle=False)
