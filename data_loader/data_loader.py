@@ -6,7 +6,7 @@ from torch.utils.data import Dataset
 import torch.nn.functional as F
 
 class Custom2DBraTSDataset(Dataset):
-    def __init__(self, data_dir, modality, range):
+    def __init__(self, data_dir, modality, num_slices=5):
         self.data_dir = data_dir
         self.modality = modality
         self.patient_ids = [d for d in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, d))]
@@ -24,7 +24,7 @@ class Custom2DBraTSDataset(Dataset):
             label = nib.load(os.path.join(patient_path, f'{patient_id}_seg.nii.gz')).get_fdata()
 
             # Append all slices to the list
-            for slice_idx in range(image.shape[2] // 2 - range, image.shape[2] // 2 + range):
+            for slice_idx in range(image.shape[2] // 2 - num_slices, image.shape[2] // 2 + num_slices):
                 image_slice = image[:, :, slice_idx]
                 label_slice = label[:, :, slice_idx]
 
