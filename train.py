@@ -98,7 +98,6 @@ if __name__ == '__main__':
     args = argparse.ArgumentParser()
 
     args.add_argument('--dataset_folder', type=str, required=True, help='Path to the training data folder')
-    args.add_argument('--modality', type=str, default='t1', help='Modality of the data to train on, You can choose either t1 or t2 or t1ce or flair')
     args.add_argument('--batch_size', type=int, default=1, help='Batch size for training')
     args.add_argument('--epochs', type=int, default=10, help='Number of epochs for training')
     args.add_argument('--lr', type=float, default=0.001, help='Learning rate for training')
